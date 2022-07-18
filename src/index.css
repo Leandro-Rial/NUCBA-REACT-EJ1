@@ -11,3 +11,96 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.ContextScreen {
+  max-width: 50rem;
+  margin: 4rem auto;
+  max-height: 100vh;
+  padding: 0 20px;
+}
+
+.heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 10px 0;
+}
+
+.input {
+  width: 50%;
+}
+
+.header-inputs {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 30%;
+  margin-left: 20px;
+}
+
+.btn-submit {
+  width: 150px;
+  background-color: #cccc;
+  transition: all 0.3s ease-in;
+}
+
+.btn-short {
+  background-color: blue !important;
+  border-color: blue !important;
+  margin-right: 20px;
+  width: 72px;
+  transition: all 0.3s ease-in;
+}
+
+.card-list {
+  max-height: calc(100vh - 226px);
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.list {
+  display: flex !important;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  border: 1px solid rgba(0,0,0,.125);
+}
+
+@media screen and (max-width: 540px) {
+  .ContextScreen {
+    margin: 20px auto;
+  }
+
+  .heading {
+    flex-direction: column;
+  }
+
+  .input {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .header-inputs {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-left: 0;
+  }
+  
+  .btn-submit {
+    width: 100%;
+    transition: all 0.3s ease-in;
+  }
+
+  .btn-short {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 20px;
+    transition: all 0.3s ease-in;
+  }
+
+  .btn-delete-header {
+    width: 100%;
+  }
+}

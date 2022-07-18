@@ -1,0 +1,72 @@
+
+import React, { useContext, useState } from 'react';
+import { UserContext } from '../context/GlobalState';
+import {
+    Navbar,
+    Container,
+    Form,
+    FormGroup,
+    Label,
+    Input,
+    Button
+} from 'reactstrap'
+import { v4 as uuid } from 'uuid'
+
+const Heading = () => {
+    const [name, setName] = useState('');
+
+    const { addUser } = useContext(UserContext);
+
+    const handleInputChange = (e) => {
+        setName(e.target.value)
+    }
+
+    const handleSubmitForm = (e) => {
+        e.preventDefault();
+
+        const newUser = {
+            id: uuid(),
+            name
+        }
+
+        addUser(newUser)
+
+        setName('')
+    }
+
+    return (
+        <Navbar color="dark" dark>
+            <Form className="heading" onSubmit={handleSubmitForm}>
+                <Input
+                    type="text"
+                    placeholder="Enter name"
+                    name="name"
+                    value={name}
+                    onChange={handleInputChange}
+                    className="input"
+                    required
+                />
+                <div className="header-inputs">
+                    <Button
+                        type="submit"
+                        className={ name ? 'btn-submit btn-short' : "btn-submit" }
+                    >
+                        Submit
+                    </Button>
+                    {
+                        name && <Button
+                                    type="button"
+                                    color="danger"
+                                    className='btn-delete-header'
+                                    onClick={() => setName('')}
+                                >
+                                    Cancel
+                                </Button>
+                    }
+                </div>
+            </Form>
+        </Navbar>
+    )
+}
+
+export default Heading
