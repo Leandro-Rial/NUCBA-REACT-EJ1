@@ -3,10 +3,7 @@ import React, { useContext, useState } from 'react';
 import { UserContext } from '../context/GlobalState';
 import {
     Navbar,
-    Container,
     Form,
-    FormGroup,
-    Label,
     Input,
     Button
 } from 'reactstrap'

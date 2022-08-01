@@ -1,11 +1,11 @@
 import React from 'react';
-import ContextScreen from './components/ContextScreen';
+import AppRouter from './router/AppRouter';
 import { UserProvider } from './context/GlobalState';
 
 function ContextApp() {
     return (
         <UserProvider>
-            <ContextScreen />
+            <AppRouter />
         </UserProvider>
     );
 }

@@ -12,11 +12,40 @@ code {
     monospace;
 }
 
+a {
+  color: #fff !important;
+}
+
+@import './styles/PokeAPI.css';
+
 .ContextScreen {
   max-width: 50rem;
   margin: 4rem auto;
   max-height: 100vh;
   padding: 0 20px;
+}
+
+.is_user {
+  color: red !important;
+  font-size: 18px;
+}
+
+.pokelink {
+  color: rgb(224, 135, 135) !important;
+  font-size: 18px;
+}
+
+.home--wrapper {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.nav-link {
+  color: #fff;
 }
 
 .heading {
