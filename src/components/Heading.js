@@ -1,6 +1,7 @@
 
-import React, { useContext, useState } from 'react';
-import { UserContext } from '../context/GlobalState';
+import React, { useState } from 'react';
+import { useDispatch } from "react-redux";
+import { addUser } from '../actions/todoActions';
 import {
     Navbar,
     Form,
@@ -12,7 +13,7 @@ import { v4 as uuid } from 'uuid'
 const Heading = () => {
     const [name, setName] = useState('');
 
-    const { addUser } = useContext(UserContext);
+    const dispatch = useDispatch();
 
     const handleInputChange = (e) => {
         setName(e.target.value)
@@ -26,7 +27,7 @@ const Heading = () => {
             name
         }
 
-        addUser(newUser)
+        dispatch(addUser(newUser))
 
         setName('')
     }

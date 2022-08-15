@@ -1,9 +1,12 @@
-import React, { useContext } from "react";
-import { UserContext } from "../context/GlobalState";
+import React from "react";
 import { ListGroup, ListGroupItem, Button } from "reactstrap";
+import { useDispatch, useSelector } from "react-redux";
+import { removeUser } from "../actions/todoActions";
 
 const UserList = () => {
-    const { users, removeUser } = useContext(UserContext);
+    const users = useSelector(state => state.todo.users);
+    
+    const dispatch = useDispatch();
 
     return (
         <div style={{ maxHeight: 'calc(100vh - 226px)' }}>
@@ -16,7 +19,7 @@ const UserList = () => {
                                     <ListGroupItem className="list" key={user.id}>
                                         <strong>{user.name}</strong>
                                         <div className="ml-auto">
-                                            <Button onClick={() => removeUser(user.id)} color="danger">
+                                            <Button onClick={() => dispatch(removeUser(user.id))} color="danger">
                                                 Delete
                                             </Button>
                                         </div>

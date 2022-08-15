@@ -1,13 +1,12 @@
-import React, { useContext } from 'react'
+import React from 'react'
 
 import { Link } from 'react-router-dom'
-import { UserContext } from '../context/GlobalState';
+import { useSelector } from "react-redux";
 
 import pokeball from '../img/PngItem_1634065.png'
 
 const Home = () => {
-
-  const { users } = useContext(UserContext);
+  const users = useSelector(state => state.todo.users);
 
   return (
     <div className="home--wrapper bg-dark">

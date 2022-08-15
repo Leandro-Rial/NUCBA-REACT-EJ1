@@ -1,14 +1,14 @@
 import React, { useState } from 'react'
 
-import axios from 'axios'
 import toast, { Toaster } from 'react-hot-toast';
+import PokemonRepository from '../repositories/PokemonRepository';
 
 const PokeAPI = () => {
     const [pokemon, setPokemon] = useState(null)
     const [pokeInput, setPokeInput] = useState("")
     
     const getPokemon = async (e, data) => {
-        const url = "https://pokeapi.co/api/v2/pokemon"
+        
         e.preventDefault()
         if (!data.length) {
             toast('Please complete the field',
@@ -23,9 +23,10 @@ const PokeAPI = () => {
             );
         } else {
             try {
-    
                 
-                const response = await axios.get(`${url}/${data}`)
+                const response = await PokemonRepository.getPokemon(data)
+
+                console.log(response)
     
                 setPokemon(response.data)
     
